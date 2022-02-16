@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>City Detail</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container text-center" >
+    <div>
+        <a class="h2" href="/city">All Cities Page!!!</a>
+    </div>
+    <div>
+        <h1>[[${cityName}]]</h1>
+    </div>
+</div>
+<div class="m-3">
+    <div class="form-group row">
+        <label class="col-form-label col-1">City's Name:</label>
+        <div class="col-8">
+            <p class="form-control" th:text="*{city.name}" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-1">City's National:</label>
+        <div class="col-8">
+            <p class="form-control" th:text="*{city.national.name}" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-1">City's Area:</label>
+        <div class="col-8">
+            <p class="form-control" th:text="*{city.area + ' km2'}" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-1">City's Population:</label>
+        <div class="col-8">
+            <p class="form-control" th:text="*{city.population + ' million'}" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-1">City's Gpa:</label>
+        <div class="col-8">
+            <p class="form-control" th:text="*{city.GPA}" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-1">City's Description:</label>
+        <div class="col-8">
+            <textarea class="form-control" th:text="*{city.description}"></textarea>
+        </div>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-primary" th:href="@{'/city/edit/' + ${city.id}}">Edit</a>
+        <a class="btn btn-secondary m-2" th:href="@{'/city/delete/' + ${city.id}}">Delete</a>
+    </div>
+</div>
+
+</body>
+</html>
